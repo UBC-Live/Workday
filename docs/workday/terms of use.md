@@ -10,7 +10,7 @@ It is **appropriate** to:
 - view an organization chart
 - review candidate lists and information if you are a recruiting manager, recruiter, or member of a search committee <br> <br>
 
-It us **not appropriate** to:
+It is **not appropriate** to:
 - view another employee's profile page
 - view the compensation or compensation history of another employee without an appropriate business reason
 - view the contact information of another employee without an appropriate business reason
