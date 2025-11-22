@@ -58,4 +58,4 @@ html = driver.page_source
 with open("workday_full_page.html", "w", encoding="utf-8") as f:
     f.write(html)
 
-print("Finished. Saved full HTML to workday_full_page.html")
+print("Finished")
