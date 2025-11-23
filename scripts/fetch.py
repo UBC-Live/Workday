@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 import time
 from pathlib import Path
 
-
 def initalize_driver(link):
     '''
     Initalizes web driver to link (Workday login page)
@@ -61,7 +60,6 @@ def saveTo(driver, filename):
         f.write(html)
     print("Wrote to ", filepath.absolute())
 
-
 def main():
     '''
     Main function for the Workday data fetching process. See indivudual function docstrings for details.
@@ -87,17 +85,13 @@ def main():
         saveTo(driver, "../data/raw/workday_full_page.html")
         
         print("Successful")
-        
-        
     except Exception as e:
         print(f"An error occurred: {e}")
-        
     finally:
         # Close browser
         if driver:
             driver.quit()
             print("Browser closed")
-
 
 if __name__ == "__main__":
     main()
