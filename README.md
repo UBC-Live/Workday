@@ -92,3 +92,8 @@ course,instructor,section_type,delivery_format,registered_students,waitlisted_st
    ```bash
    pip install -r requirements.txt
    ```
+
+## Data fetch mechanics
+
+The data is webscraped unconventionally with Selenium and some manual authentication. 
+
