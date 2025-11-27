@@ -9,7 +9,8 @@ def initalize_driver(link):
     '''
     Initalizes web driver to link (Workday login page)
     '''
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(options=options)
     driver.get(link)
     return driver
 
@@ -59,6 +60,9 @@ def scroll_bottom(driver, pause=1.0):
 
 
 def saveTo(driver, filename):
+    '''
+    Saves the current page source to the given filename.
+    '''
     # Create parent directories if they don't exist
     # (Probably need to change in the future)
     filepath = Path(filename)
