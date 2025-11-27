@@ -5,9 +5,9 @@ from pathlib import Path
 
 MAX_SAME_HEIGHT_COUNT = 2
 
-def initalize_driver(link):
+def initialize_driver(link):
     '''
-    Initalizes web driver to link (Workday login page)
+    Initialize web driver to link (Workday login page)
     '''
     options = webdriver.ChromeOptions()
     driver = webdriver.Chrome(options=options)
@@ -82,8 +82,8 @@ def main():
     driver = None
 
     try:
-        # Initalize driver
-        driver = initalize_driver("https://workday.students.ubc.ca/")
+        # Initialize driver
+        driver = initialize_driver("https://workday.students.ubc.ca/")
 
         # Clicks login automaticaly, might take a second
         driver = click_workday(driver)
