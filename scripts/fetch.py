@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 from pathlib import Path
 
+MAX_SAME_HEIGHT_COUNT = 2
 
 def initalize_driver(link):
     '''
@@ -49,7 +50,7 @@ def scroll_bottom(driver, pause=1.0):
             same_count = 0
 
         # stop after bottom reached multiple times
-        if same_count > 2:
+        if same_count > MAX_SAME_HEIGHT_COUNT:
             break
 
         last_height = new_height
