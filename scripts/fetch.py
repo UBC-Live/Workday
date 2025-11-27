@@ -5,6 +5,7 @@ from pathlib import Path
 
 MAX_SAME_HEIGHT_COUNT = 2
 
+
 def initialize_driver(link):
     '''
     Initialize web driver to link (Workday login page)
