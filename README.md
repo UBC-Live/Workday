@@ -62,6 +62,7 @@ course,instructor,section_type,delivery_format,registered_students,waitlisted_st
 ```
 
 - Raw data will be in `data/raw/` and cleaned data in `data/raw/clean/`.
+- Raw data is in the form of a raw html file, as it is sourced from a workday page.
 - **Note:** The format of the data or CSV file may change as requirements evolve.
 
 ## Setup Instructions
@@ -91,3 +92,8 @@ course,instructor,section_type,delivery_format,registered_students,waitlisted_st
    ```bash
    pip install -r requirements.txt
    ```
+
+## Data fetch mechanics
+
+The data is webscraped unconventionally with Selenium and some manual authentication. 
+
