@@ -1,0 +1,46 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "type": "object",
+    "properties": {
+        "course": {
+            "type": "string"
+        },
+        "instructor": {
+            "type": "string"
+        },
+        "section_type": {
+            "type": "string"
+        },
+        "delivery_format": {
+            "type": "string"
+        },
+        "registered_students": {
+            "type": "number"
+        },
+        "waitlisted_students": {
+            "type": "number"
+        },
+        "class_time": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$"
+        },
+        "days_of_week": {
+            "type": "string",
+            "enum": [
+                "MonWedFri",
+                "MonFri",
+                "TueThu"
+            ]
+        }
+    },
+    "required": [
+        "course",
+        "instructor",
+        "section_type",
+        "delivery_format",
+        "registered_students",
+        "waitlisted_students",
+        "class_time",
+        "days_of_week"
+    ]
+}
