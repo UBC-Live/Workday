@@ -3,21 +3,27 @@
 ## Description
 This repository is for handling Workday data ingestion and processing in the UBC Live team. 
 
-## Data format (CSV)
-### Header definitions
+## Data format (JSON)
+All course data is now structured as JSON conforming to the schema defined in `schema_definition.json`. This schema serves as the authoritative reference for data structure, validation, and integration requirements.
+### Purpose of the Schema
+The JSON schema defines the structure and validation rules for Workday course data. It ensures data consistency, type safety, and proper formatting across all ingestion and processing pipelines. The schema is based on JSON Schema Draft 2019-09 specification.
+### Schema fields
 **course**  
 Official title of the course as shown in workday, with section.
-```csv
+**Type:** string
+```json
 "DSCI_V 100-003"
 ```
 **instructor**  
 Primary instructor responsible for teaching the section.
-```csv
+**Type:** string
+```json
 "Katherine Burak"
 ```
 **section_type**  
 Type of instructional delivery for the section.
-```csv
+**Type:** string
+```json
 "Lecture"
 "Lab"
 "Tutorial"
@@ -25,7 +31,8 @@ Type of instructional delivery for the section.
 ```
 **delivery_format**  
 How the course is delivered.
-```csv
+**Type:** string
+```json
 "In-Person"
 "Online"
 "Hybrid"
@@ -33,36 +40,49 @@ How the course is delivered.
 ```
 **registered_students**  
 Current number of enrolled students in the section.
-```csv
+**Type:** number
+```json
 120
 ```
 **waitlisted_students**  
 Number of students on the waitlist for the section.
-```csv
+**Type:** number
+```json
 15
 ```
 **class_time**  
 Start and end time of the scheduled class session in 24-hour format.
-```csv
+**Type:** string
+```json
 "15:30-17:00"
 "08:30-10:00"
 ```
 
 **days_of_week**  
 Days on which the class meets, stored as a delimiter-separated list in order of the week.
-```csv
+**Type:** string
+```json
 "Mon|Wed|Fri"
 "Tue|Thu"
 ```
 ### Example
 
-```csv
-course,instructor,section_type,delivery_format,registered_students,waitlisted_students,class_time,days_of_week
-"DSCI_V 100-003","Katherine Burak","Lecture","In-Person",162,0,"15:30-17:00","Tue|Thu"
+```json
+{
+  "course": "DSCI_V 100-003",
+  "instructor": "Katherine Burak",
+  "section_type": "Lecture",
+  "delivery_format": "In-Person",
+  "registered_students": 162,
+  "waitlisted_students": 0,
+  "class_time": "15:30-17:00",
+  "days_of_week": "TueThu"
+}
 ```
 
 - Raw data will be in `data/raw/` and cleaned data in `data/raw/clean/`.
 - Raw data is in the form of a raw html file, as it is sourced from a workday page.
+- Processed data must conform to the data defined in `schema_definition.json`.
 - **Note:** The format of the data or CSV file may change as requirements evolve.
 
 ## Setup Instructions
@@ -92,8 +112,13 @@ course,instructor,section_type,delivery_format,registered_students,waitlisted_st
    ```bash
    pip install -r requirements.txt
    ```
-
+### Project Workflow
 ## Data fetch mechanics
+- The data is webscraped unconventionally with Selenium and some manual authentication.
+- Produces a single static HTML file.
+## Data Parser
+- Extracts structured course information from the raw HTML file.
+## Schema Validation
+- All parser output must match the schema defined in `schema_definition.json`.
 
-The data is webscraped unconventionally with Selenium and some manual authentication. 
 
