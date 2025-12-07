@@ -112,13 +112,13 @@ Days on which the class meets, stored as a delimiter-separated list in order of 
    ```bash
    pip install -r requirements.txt
    ```
-### Project Workflow
-## Data fetch mechanics
+## Project Workflow
+### Data fetch mechanics
 - The data is webscraped unconventionally with Selenium and some manual authentication.
 - Produces a single static HTML file.
-## Data Parser
+### Data Parser
 - Extracts structured course information from the raw HTML file.
-## Schema Validation
+### Schema Validation
 - All parser output must match the schema defined in `schema_definition.json`.
 
 
